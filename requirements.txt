@@ -3,3 +3,8 @@ pillow
 
 # DataBase
 psycopg2-binary
+
+# restframework
+djangorestframework
+markdown
+django-filter
