@@ -6,11 +6,14 @@ from rest_framework.generics import GenericAPIView , RetrieveUpdateDestroyAPIVie
 from rest_framework.mixins import ListModelMixin , CreateModelMixin
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter , OrderingFilter
 
 from django.shortcuts import get_object_or_404
 
-from blog.models import Post
-from .serializers import PostSerializer
+from blog.models import Post , Category
+from .serializers import PostSerializer , CategorySerializer
+from .pagination import DefaultPagination
 
 
 """
@@ -199,3 +202,13 @@ class PostModelViewSets(viewsets.ModelViewSet) :
     permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
     queryset = Post.objects.select_related("author","category").filter(status=True)
+    pagination_class = DefaultPagination
+    filter_backends = [DjangoFilterBackend,SearchFilter,OrderingFilter]
+    filterset_fields = ["category","author","status"]
+    ordering_fields = ["id"]
+    search_fields = ["title"]
+
+class CategoryModelViewSets(viewsets.ModelViewSet) :
+    permission_classes = [IsAuthenticated]
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
