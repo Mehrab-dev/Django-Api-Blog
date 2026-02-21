@@ -11,3 +11,6 @@ django-filter
 
 # documentation
 drf-yasg[validation]
+
+# authentication
+djangorestframework-simplejwt

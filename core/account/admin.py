@@ -5,9 +5,9 @@ from account.models import User , Profile
 
 class CustomUserAdmin(UserAdmin) :
     model = User
-    list_display = ["id","email","is_superuser","is_staff","is_active"]
+    list_display = ["id","email","is_superuser","is_staff","is_active","is_verified"]
     list_display_links = ["id","email"]
-    list_filter = ["is_superuser","is_staff","is_active"]
+    list_filter = ["is_superuser","is_staff","is_active","is_verified"]
     search_fields = ["id","email"]
     ordering = ("id",)
 
@@ -16,7 +16,7 @@ class CustomUserAdmin(UserAdmin) :
             "fields":("email","password"),
         }),
         ("Permissions",{
-            "fields":("is_superuser","is_staff","is_active"),
+            "fields":("is_superuser","is_staff","is_active","is_verified"),
         }),
         ("Group Permissions",{
             "fields":("groups","user_permissions"),
@@ -29,7 +29,7 @@ class CustomUserAdmin(UserAdmin) :
     add_fieldsets = (
         (None,{
             "classes":("wide",),
-            "fields":("email","password1","password2","is_superuser","is_staff","is_active"),
+            "fields":("email","password1","password2","is_superuser","is_staff","is_active","is_verified"),
         }),
     )
 
