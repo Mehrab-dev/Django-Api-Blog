@@ -21,4 +21,10 @@ urlpatterns = [
     # profile
     path("profile/",views.ProfileApiView.as_view(),name="profile"),
 
+    # test enail
+    path("test_email/",views.TestEmailSend.as_view(),name="test_email"),
+
+    # activation email
+    path("activation/confirm/<str:token>",views.ActivationApiView.as_view(),name="activation",)
+
 ]

@@ -14,3 +14,6 @@ drf-yasg[validation]
 
 # authentication
 djangorestframework-simplejwt
+
+# email modules
+django-mail-templated
