@@ -17,3 +17,7 @@ djangorestframework-simplejwt
 
 # email modules
 django-mail-templated
+
+# test
+pytest
+pytest-django

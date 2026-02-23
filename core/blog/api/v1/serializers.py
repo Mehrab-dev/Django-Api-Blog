@@ -8,7 +8,7 @@ from account.models import User
 class PostSerializer(serializers.ModelSerializer) :
     snippet = serializers.ReadOnlyField(source="get_snippet")
     absolute_url = serializers.SerializerMethodField(method_name="get_absolute_url")
-    relative_url = serializers.URLField(source="get_relative_url")
+    relative_url = serializers.URLField(source="get_relative_url",read_only=True)
     category = serializers.SlugRelatedField(many=False,slug_field="name",queryset=Category.objects.all())
     author = serializers.SlugRelatedField(many=False,slug_field="email",queryset=User.objects.all())
 

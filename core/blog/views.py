@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView , RedirectView
 from django.views.generic import ListView , DetailView , CreateView , UpdateView , DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.models import Post
 from .forms import PostForm
@@ -24,7 +25,7 @@ class PostListView(ListView) :
         posts = Post.objects.filter(status=True)
         return posts
 
-class PostDetailView(DetailView) :
+class PostDetailView(LoginRequiredMixin,DetailView) :
     model = Post
     context_object_name = "post"
 
