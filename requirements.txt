@@ -21,3 +21,5 @@ django-mail-templated
 # test
 pytest
 pytest-django
+Faker
+django-cors-headers

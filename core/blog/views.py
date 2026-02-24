@@ -13,6 +13,9 @@ class IndexView(TemplateView) :
         content["name"] = "Mehrab"
         return content
 
+class PostListApiView(TemplateView) :
+    template_name = "blog/post_list_api.html"
+
 class RedirectViews(RedirectView) :
     url = "https://maktabkhooneh.org/"
 

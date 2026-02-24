@@ -16,4 +16,7 @@ urlpatterns = [
     # restframework
     path("api/v1/",include("blog.api.v1.urls")),
 
+    # jQuery
+    path("post/api/",views.PostListApiView.as_view(),name="post_list_api"),
+
 ]
