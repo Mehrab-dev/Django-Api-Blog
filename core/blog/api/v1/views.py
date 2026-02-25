@@ -199,7 +199,7 @@ class PostViewSets(viewsets.ViewSet) :
 """
 
 class PostModelViewSets(viewsets.ModelViewSet) :
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     serializer_class = PostSerializer
     queryset = Post.objects.select_related("author","category").filter(status=True)
     pagination_class = DefaultPagination
