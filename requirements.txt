@@ -1,5 +1,6 @@
 django
 pillow
+requests
 
 # DataBase
 psycopg2-binary
@@ -27,3 +28,4 @@ django-cors-headers
 # background proccess and cache
 celery
 redis
+django-redis
